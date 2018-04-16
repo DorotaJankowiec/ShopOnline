@@ -1,0 +1,286 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                     http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.o7planning</groupId>
+	<artifactId>SpringMVCAnnotationShoppingCart</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0</version>
+	<name>SpringMVCAnnotationShoppingCart Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+
+	<properties>
+		<java-version>1.8</java-version>
+	</properties>
+
+	<repositories>
+		<!-- Repository for ORACLE JDBC Driver -->
+		<!-- DO PRZEROBIENIA - ZMIANA SPOSOBU DEKLARACJI -->
+		<repository>
+			<id>codelds</id>
+			<url>https://code.lds.org/nexus/content/groups/main-repo</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Servlet API -->
+
+		<!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api%20 -->
+		<!-- OK -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!-- Jstl for jsp page -->
+
+		<!-- http://mvnrepository.com/artifact/javax.servlet/jstl%20 -->
+		<!-- TU UWAGA: JEST NOWSZA WERSJA, ALE TRZEBABY BYŁO ŚCIĄGNĄĆ MANUALNIE -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+
+		<!-- JSP API -->
+
+		<!-- http://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api%20 -->
+		<!-- OK -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!-- Apache Commons FileUpload -->
+
+		<!-- http://mvnrepository.com/artifact/commons-fileupload/commons-fileupload%20 -->
+		<!-- OK. Komponent FileUpload Apache Commons zapewnia prosty, ale elastyczny 
+			sposób dodawania obsługi funkcji przesyłania plików wieloczęściowych do serwletów 
+			i aplikacji internetowych. -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.3</version>
+		</dependency>
+
+
+		<!-- Spring dependencies -->
+
+		<!-- http://mvnrepository.com/artifact/org.springframework/spring-core%20 -->
+		<!-- OK -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>5.0.5.RELEASE</version>
+		</dependency>
+
+		<!-- http://mvnrepository.com/artifact/org.springframework/spring-web%20 -->
+		<!-- OK -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>5.0.5.RELEASE</version>
+		</dependency>
+
+		<!-- http://mvnrepository.com/artifact/org.springframework/spring-webmvc%20 -->
+		<!-- OK. Podstawowe biblioteki dla aplikacji webowej MVC Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>5.0.0.RELEASE</version>
+		</dependency>
+
+		<!-- http://mvnrepository.com/artifact/org.springframework/spring-orm%20 -->
+		<!-- OK. Spring Object/Relational Mapping -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>5.0.5.RELEASE</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-dao -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-dao</artifactId>
+			<version>2.0</version>
+		</dependency>
+
+
+		<!-- Spring Security Artifacts - START -->
+
+		<!-- http://mvnrepository.com/artifact/org.springframework.security/spring-security-web%20 -->
+		<!-- OK -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>5.0.4.RELEASE</version>
+		</dependency>
+
+		<!-- http://mvnrepository.com/artifact/org.springframework.security/spring-security-config%20 -->
+		<!-- OK -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.0.4.RELEASE</version>
+		</dependency>
+
+		<!-- http://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs%20 -->
+		<!-- OK -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>5.0.4.RELEASE</version>
+		</dependency>
+
+		<!-- Spring Security Artifacts - END -->
+
+
+		<!-- Hibernate -->
+
+		<!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-core%20 -->
+		<!-- OK -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.16.Final</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<!-- OK -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.16.Final</version>
+		</dependency>
+
+		<!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0%20 -->
+		<!-- OK. Integracja dla c3p0 Połączenie poolingu z Hibernate ORM -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>5.2.16.Final</version>
+		</dependency>
+
+
+		<!-- MySQL JDBC driver -->
+
+		<!-- http://mvnrepository.com/artifact/mysql/mysql-connector-java%20 -->
+		<!-- OK. JDBC Type 4 driver for MySQL -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>6.0.6</version>
+		</dependency>
+
+		<!-- Oracle JDBC driver -->
+		<!-- OK. Oracle JDBC driver classes for use with JDK1.4 -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
+		</dependency>
+
+
+		<!-- SQLServer JDBC driver (JTDS) -->
+
+		<!-- http://mvnrepository.com/artifact/net.sourceforge.jtds/jtds%20 -->
+		<!-- OK. jTDS jest open source w 100% czystym sterownikiem JDBC 3.0 Java 
+			(typ 4) dla Microsoft SQL Server (6.5, 7, 2000, 2005, 2008, 2012) i Sybase 
+			ASE (10, 11, 12, 15). jTDS jest oparty na FreeTDS i jest obecnie najszybszym 
+			sterownikiem JDBC gotowym do produkcji dla SQL Server i Sybase. jTDS jest 
+			w 100% kompatybilny z JDBC 3.0, obsługując tylko do przodu i przewijające 
+			/ aktualizowalne ResultSets i implementując wszystkie metody DatabaseMetaData 
+			i ResultSetMetaData.. -->
+		<dependency>
+			<groupId>net.sourceforge.jtds</groupId>
+			<artifactId>jtds</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+
+		<!-- PostgreSQL driver -->
+
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<!-- OK. Sterownik Java JDBC 4.2 (JRE 8+) dla bazy danych PostgreSQL -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.2</version>
+		</dependency>
+
+
+		<!-- Email validator,... -->
+
+		<!-- http://mvnrepository.com/artifact/commons-validator/commons-validator%20 -->
+		<!-- OK. Apache Commons Validator zapewnia bloki budujące zarówno walidacje 
+			po stronie klienta, jak i walidację danych po stronie serwera. Może być używany 
+			jako samodzielny lub z frameworkiem takim jak Struts. -->
+		<dependency>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
+			<version>1.6</version>
+		</dependency>
+
+		<!-- obsługa DriverManagerDataSource -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>3.0.3.RELEASE</version>
+		</dependency>
+
+	</dependencies>
+
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.2</version>
+					<configuration>
+						<verbose>true</verbose>
+						<source>1.8</source>
+						<target>1.8</target>
+						<showWarnings>true</showWarnings>
+					</configuration>
+				</plugin>
+
+				<!-- Config: Maven Tomcat Plugin -->
+				<!-- http://mvnrepository.com/artifact/org.apache.tomcat.maven/tomcat7-maven-plugin%20 -->
+				<!-- OK. Plugin Tomcat Maven zapewnia cele do manipulowania projektami 
+					WAR w kontenerze serwletu Tomcat 7.x. -->
+				<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+					<artifactId>tomcat7-maven-plugin</artifactId>
+					<version>2.2</version>
+					<!-- Config: contextPath and Port (Default - /SpringMVCAnnotationShoppingCart 
+						: 8080) -->
+					<!-- <configuration> <path>/</path> <port>8899</port> </configuration> -->
+					<configuration>
+						<path>/</path>
+						<contextReloadable>true</contextReloadable>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
